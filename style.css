@@ -394,6 +394,8 @@ form {
     padding-inline: 1.5rem;
     outline: none;
     inline-size: 65%;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
   }
 
   ::placeholder {
