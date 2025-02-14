@@ -1,0 +1,434 @@
+@font-face {
+  font-family: 'Rubik';
+  src: url("./fonts/rubik-v28-latin-700.woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url("./fonts/rubik-v28-latin-500.woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url("./fonts/rubik-v28-latin-400.woff2");
+  font-weight: 400;
+}
+
+
+
+:root {
+  /* ? Text colors */
+  --Pale-Violet-sub-heading-at-the-top-of-the-app-UI: hsl(276, 100%, 81%);
+  --Moderate-Violet-chat-on-the-left: hsl(276, 55%, 52%);
+  --chat-left-bg-crl: hsl(274, 37%, 93%);
+  --Desaturated-Dark-Violet-chat-on-the-right: hsl(271, 15%, 43%);
+  --Grayish-Blue-placeholder-text: hsl(206, 6%, 79%);
+  --Very-Dark-Desaturated-Violet-main-heading: hsl(271, 36%, 24%);
+  --Dark-Grayish-Violet-paragraph: hsl(270, 7%, 64%);
+
+  /* ? Gradients colors */
+  --Light-Magenta: hsl(293, 100%, 63%);
+  --Light-Violet: hsl(264, 100%, 61%);
+
+  /* ? Secondary colors */
+  --White: hsl(0, 0%, 100%);
+  --Light-Grayish-Violet-app-background: hsl(270, 20%, 96%);
+  --Very-Dark-Desaturated-Violet-submit-button-background: hsl(271, 36%, 24%);
+  --Very-Light-Magenta-radio-button-outline: hsl(289, 100%, 72%);
+}
+
+body {
+  margin: 0;
+  background-color: hsl(0, 0%, 98%);
+  font-family: 'Rubik';
+  overflow-x: hidden;
+}
+
+h2,
+h3 {
+  margin: 0;
+}
+
+
+/* ! ----- Body Background Styling ----- */
+main {
+  position: relative;
+  max-inline-size: 1440px;
+  min-block-size: 100vh;
+  margin-inline: auto;
+
+  @media (width < 1440px) {
+    overflow: hidden;
+  }
+}
+
+main::before,
+main::after {
+  content: '';
+  position: absolute;
+  inline-size: 500px;
+  block-size: clamp(31.25rem, 27.0833rem + 18.5185vw, 43.75rem);
+  transition: 100ms;
+  z-index: -1;
+}
+
+main::before {
+  top: 0;
+  left: -300px;
+  background: linear-gradient(var(--Light-Magenta), var(--Light-Violet));
+  border-radius: 0 0 250px 250px;
+
+  @media (width > 650px) {
+    left: -200px;
+  }
+
+  @media (width > 900px) {
+    left: -100px;
+  }
+}
+
+main::after {
+  bottom: 0;
+  right: -300px;
+  background-color: hsl(290, 37%, 97%);
+  border-radius: 250px 250px 0 0;
+
+  @media (width > 650px) {
+    right: -200px;
+  }
+
+  @media (width > 900px) {
+    right: -100px;
+  }
+}
+
+
+/* ! ---------- Main Content styling ---------- */
+
+main {
+  display: grid;
+  place-content: center;
+}
+
+.main-wrapper {
+  max-inline-size: 820px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding-inline: 2rem;
+
+  @media (width < 900px) {
+    grid-template-columns: initial;
+    justify-items: center;
+    gap: 3rem;
+    margin-block-start: 3rem;
+
+    section {
+      text-align: center;
+      padding-block-end: 3rem;
+
+      p {
+        max-inline-size: 45ch;
+      }
+    }
+  }
+}
+
+h1 {
+  font-size: clamp(2.5rem, 2.3571rem + 0.7143vw, 3rem);
+  font-weight: 500;
+  margin-block: 1.5rem;
+  color: var(--Very-Dark-Desaturated-Violet-main-heading);
+}
+
+section p {
+  font-size: 1.1rem;
+  color: var(--Dark-Grayish-Violet-paragraph);
+  line-height: 140%;
+}
+
+/* ! ----- Mobile screen view styling ----- */
+
+.mobile-screen-view {
+  inline-size: 300px;
+  font-size: 0.725rem;
+  background-color: var(--White);
+  box-sizing: border-box;
+  padding: 0.6rem;
+  border-radius: 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.mobile-screen-view::before {
+  position: absolute;
+  content: '';
+  left: 50%;
+  top: 0;
+  inline-size: 120px;
+  block-size: 30px;
+  background-color: white;
+  transform: translateX(-50%);
+  border-radius: 0 0 15px 15px;
+}
+
+.inside-screen {
+  background-color: var(--Light-Grayish-Violet-app-background);
+  box-sizing: border-box;
+  border-radius: 25px;
+  padding-block-end: 0.5rem;
+}
+
+
+/* ! ----- App header styling ----- */
+.app-header {
+  background: linear-gradient(to left, var(--Light-Magenta), var(--Light-Violet));
+  border-radius: 20px 20px 8px 8px;
+  display: flex;
+  align-items: center;
+  color: var(--White);
+  gap: 0.5rem;
+  box-sizing: border-box;
+  padding-inline: 0.5rem;
+  padding-block-start: 2.25rem;
+  padding-block-end: 1rem;
+
+  >button {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
+
+.profile-info-activity {
+  inline-size: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    font-size: 1rem;
+  }
+}
+
+button:not(form button) {
+  margin: 0;
+  padding-block: 5px;
+  background: transparent;
+  border: none;
+  color: var(--White);
+  border-radius: 20px;
+  transition: 150ms;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.192);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.315);
+  }
+}
+
+.profile-info-activity>div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  img {
+    border-radius: 15px;
+    outline: 1px solid white;
+  }
+
+  h2 {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  h3 {
+    margin-block-start: 0.15rem;
+    color: var(--Pale-Violet-sub-heading-at-the-top-of-the-app-UI);
+    font-size: 0.65rem;
+    font-weight: 400;
+  }
+}
+
+/* ! ----- App body styling ----- */
+
+.app-body {
+  padding-inline: 0.6rem;
+}
+
+.recieved-texts,
+.sent-texts {
+  max-inline-size: 22ch;
+  padding-block: 8px;
+  padding-inline: 10px;
+  margin-block: 10px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.recieved-texts {
+  background-color: var(--chat-left-bg-crl);
+  color: var(--Moderate-Violet-chat-on-the-left);
+  border-radius: 15px 15px 15px 6px;
+}
+
+.sent-messages {
+  margin-block: 1rem;
+}
+
+.sent-images {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+
+  img {
+    border-radius: 10px;
+  }
+}
+
+.sent-texts {
+  background-color: var(--White);
+  color: var(--Desaturated-Dark-Violet-chat-on-the-right);
+  border-radius: 15px 15px 6px 15px;
+  margin-inline-start: auto;
+}
+
+.last.sent-texts {
+  inline-size: max-content;
+}
+
+
+.recieved-pricing {
+  margin-block-end: 1rem;
+}
+
+/* !----------------------------- */
+
+.radio-container {
+  background: linear-gradient(to right, var(--Light-Magenta), var(--Light-Violet));
+  color: var(--White);
+  max-inline-size: 30ch;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 13px 13px 13px 6px;
+  box-sizing: border-box;
+}
+
+.radio-container:not(.radio-container+.radio-container) {
+  margin-block-end: 10px;
+}
+
+.radio-container>div {
+  display: flex;
+  align-items: center;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    position: relative;
+    padding-inline-start: 2.2rem;
+    padding-inline-end: 2.15rem;
+    padding-block: 0.9rem;
+    cursor: pointer;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+  }
+
+  label::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 12px;
+    inline-size: 12px;
+    block-size: 12px;
+    transform: translateY(-50%);
+    outline: 1px solid rgba(255, 255, 255, 0.7);
+    outline-offset: 3px;
+    border-radius: 7px;
+  }
+
+  input[type="radio"]:checked+label:before {
+    background-color: rgba(255, 255, 255);
+  }
+}
+
+.radio-container>div+label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding-block: 13px;
+  padding-inline: 20px;
+  cursor: pointer;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.radio-2-label.radio-2-label {
+  padding-inline-end: 3.55rem;
+}
+
+/* !----------------------------- */
+
+form {
+  background-color: var(--White);
+  border-radius: 100px;
+  position: relative;
+  inline-size: 100%;
+
+  input {
+    background-color: transparent;
+    border: none;
+    position: relative;
+    padding-block: 1rem;
+    padding-inline: 1.5rem;
+    outline: none;
+    inline-size: 65%;
+  }
+
+  ::placeholder {
+    color: var(--Grayish-Blue-placeholder-text);
+  }
+
+  button {
+    position: absolute;
+    border: none;
+    right: 6px;
+    top: 50%;
+    border: none;
+    transform: translateY(-50%);
+    background-color: var(--Very-Dark-Desaturated-Violet-submit-button-background);
+    color: var(--White);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-inline: 7px;
+    padding-block: 6px;
+    border-radius: 100px;
+    z-index: 99;
+    cursor: pointer;
+    transition: 150ms;
+
+    &:hover {
+      background-color: hsl(271, 20%, 34%);
+    }
+
+    &:active {
+      background-color: hsl(271, 26%, 44%);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--Light-Magenta);
+      outline-offset: 2px;
+    }
+  }
+}
