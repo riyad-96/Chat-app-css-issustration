@@ -392,10 +392,13 @@ form {
     position: relative;
     padding-block: 1rem;
     padding-inline: 1.5rem;
-    outline: none;
     inline-size: 65%;
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
+  }
+
+  input:focus-visible{
+    outline: 2px solid var(--Light-Magenta);
   }
 
   ::placeholder {
@@ -429,7 +432,7 @@ form {
     }
 
     &:focus-visible {
-      outline: 1px solid var(--Light-Magenta);
+      outline: 2px solid var(--Light-Magenta);
       outline-offset: 2px;
     }
   }
